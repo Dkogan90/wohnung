@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Eigentumswohnung Von-Stauffenberg-Str. 22 · Paderborn</title>
+  <meta name="description" content="106 m² Eigentumswohnung im 5. OG mit Balkon, Aufzug und Tiefgarage in Paderborn. 255.000 € VB. Sofort verfügbar." />
+  <meta property="og:title" content="Eigentumswohnung in Paderborn – 106 m², 5. OG" />
+  <meta property="og:description" content="Von-Stauffenberg-Straße 22 · 255.000 € VB · inkl. Tiefgarage" />
+  <meta property="og:image" content="assets/aussenansicht.jpg" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #1c2118;
+      --ink-soft: #3d4638;
+      --muted: #6b7464;
+      --line: #d8ddd2;
+      --paper: #f7f5f0;
+      --paper-2: #efece4;
+      --cream: #faf9f6;
+      --accent: #2f5d3a;
+      --accent-deep: #1e3d27;
+      --accent-soft: #e8f0e9;
+      --price: #1e3d27;
+      --warn: #8a5a1c;
+      --radius: 14px;
+      --shadow: 0 18px 50px rgba(28, 33, 24, 0.08);
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "DM Sans", system-ui, sans-serif;
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.55;
+      font-size: 17px;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    a:hover { color: var(--accent-deep); }
+
+    .wrap { width: min(100% - 2rem, var(--max)); margin-inline: auto; }
+
+    /* Header */
+    .topbar {
+      position: sticky; top: 0; z-index: 40;
+      background: rgba(250, 249, 246, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid transparent;
+      transition: border-color .2s;
+    }
+    .topbar.scrolled { border-bottom-color: var(--line); }
+    .topbar-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem; padding: .85rem 0;
+    }
+    .brand {
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 600; font-size: 1.05rem;
+      color: var(--ink); text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .brand span { color: var(--muted); font-weight: 500; font-size: .92rem; }
+    nav { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+    nav a {
+      color: var(--ink-soft); text-decoration: none; font-size: .92rem; font-weight: 500;
+    }
+    nav a:hover { color: var(--accent); }
+    .nav-cta {
+      background: var(--accent); color: #fff !important;
+      padding: .55rem 1rem; border-radius: 999px;
+      text-decoration: none !important;
+    }
+    .nav-cta:hover { background: var(--accent-deep); color: #fff !important; }
+
+    /* Hero */
+    .hero {
+      padding: 1.5rem 0 3rem;
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      nav .hide-sm { display: none; }
+    }
+    .hero-gallery {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: .6rem;
+      min-height: 420px;
+    }
+    .hero-gallery figure {
+      margin: 0; overflow: hidden; border-radius: var(--radius);
+      background: var(--paper-2); position: relative;
+    }
+    .hero-gallery figure:first-child { grid-row: 1 / -1; }
+    .hero-gallery img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform .5s ease;
+    }
+    .hero-gallery figure:hover img { transform: scale(1.03); }
+
+    .hero-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: calc(var(--radius) + 4px);
+      padding: 1.75rem 1.6rem;
+      box-shadow: var(--shadow);
+      display: flex; flex-direction: column; gap: 1.1rem;
+    }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: .45rem;
+      font-size: .78rem; font-weight: 600; letter-spacing: .08em;
+      text-transform: uppercase; color: var(--accent);
+    }
+    .eyebrow::before {
+      content: ""; width: .55rem; height: .55rem; border-radius: 50%;
+      background: var(--accent);
+    }
+    h1 {
+      font-family: Fraunces, Georgia, serif;
+      font-size: clamp(1.85rem, 3.5vw, 2.45rem);
+      line-height: 1.15; letter-spacing: -0.03em; font-weight: 600;
+    }
+    .addr { color: var(--muted); font-size: 1rem; }
+    .price-row {
+      display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem 1rem;
+      padding: 1rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    }
+    .price {
+      font-family: Fraunces, Georgia, serif;
+      font-size: 2rem; font-weight: 700; color: var(--price);
+      letter-spacing: -0.03em;
+    }
+    .price small { font-size: 1rem; font-weight: 500; color: var(--muted); margin-left: .25rem; }
+    .badge {
+      display: inline-block; background: var(--accent-soft); color: var(--accent-deep);
+      font-size: .8rem; font-weight: 600; padding: .3rem .65rem; border-radius: 999px;
+    }
+    .facts {
+      display: grid; grid-template-columns: 1fr 1fr; gap: .75rem 1rem;
+    }
+    .fact dt { font-size: .75rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 600; }
+    .fact dd { font-weight: 600; font-size: 1.02rem; margin-top: .1rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: .65rem; margin-top: auto; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: .4rem;
+      padding: .8rem 1.2rem; border-radius: 999px; font-weight: 600; font-size: .95rem;
+      border: none; cursor: pointer; text-decoration: none !important;
+      transition: background .15s, transform .15s;
+    }
+    .btn:active { transform: scale(.98); }
+    .btn-primary { background: var(--accent); color: #fff !important; }
+    .btn-primary:hover { background: var(--accent-deep); color: #fff !important; }
+    .btn-ghost {
+      background: transparent; color: var(--ink) !important;
+      border: 1px solid var(--line);
+    }
+    .btn-ghost:hover { border-color: var(--ink); background: #fff; }
+
+    /* Sections */
+    section { padding: 3.25rem 0; }
+    section + section { border-top: 1px solid var(--line); }
+    .section-label {
+      font-size: .78rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: .6rem;
+    }
+    h2 {
+      font-family: Fraunces, Georgia, serif;
+      font-size: clamp(1.55rem, 2.6vw, 2rem);
+      letter-spacing: -0.02em; font-weight: 600; margin-bottom: 1.25rem;
+    }
+    .lead { font-size: 1.08rem; color: var(--ink-soft); max-width: 62ch; }
+    .two-col {
+      display: grid; grid-template-columns: 1.1fr .9fr; gap: 2.5rem; align-items: start;
+    }
+    @media (max-width: 800px) { .two-col { grid-template-columns: 1fr; } }
+
+    .prose p { margin-bottom: 1rem; color: var(--ink-soft); }
+    .prose strong { color: var(--ink); font-weight: 600; }
+    .checklist { list-style: none; display: grid; gap: .55rem; margin: 1.25rem 0; }
+    .checklist li {
+      display: grid; grid-template-columns: 1.25rem 1fr; gap: .65rem;
+      color: var(--ink-soft);
+    }
+    .checklist li::before {
+      content: ""; width: 1.15rem; height: 1.15rem; margin-top: .2rem;
+      background: var(--accent-soft);
+      border-radius: 50%;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%232f5d3a' stroke-width='2'%3E%3Cpath d='M3.5 8.5l3 3 6-6'/%3E%3C/svg%3E");
+      background-size: .75rem; background-repeat: no-repeat; background-position: center;
+    }
+
+    .card-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+    }
+    @media (max-width: 800px) { .card-grid { grid-template-columns: 1fr; } }
+    .info-card {
+      background: #fff; border: 1px solid var(--line);
+      border-radius: var(--radius); padding: 1.25rem 1.2rem;
+    }
+    .info-card h3 {
+      font-family: Fraunces, Georgia, serif;
+      font-size: 1.15rem; font-weight: 600; margin-bottom: .5rem;
+    }
+    .info-card p { color: var(--ink-soft); font-size: .95rem; }
+    .info-card .icon {
+      width: 2.25rem; height: 2.25rem; border-radius: 10px;
+      background: var(--accent-soft); color: var(--accent-deep);
+      display: grid; place-items: center; margin-bottom: .85rem;
+      font-size: 1.1rem;
+    }
+
+    /* Gallery – room groups, portrait-friendly */
+    .gallery-tour { display: flex; flex-direction: column; gap: 2.25rem; }
+    .gallery-block h3 {
+      font-family: Fraunces, Georgia, serif;
+      font-size: 1.15rem; font-weight: 600;
+      margin-bottom: .85rem;
+      display: flex; align-items: baseline; gap: .65rem;
+    }
+    .gallery-block h3 span {
+      font-family: "DM Sans", system-ui, sans-serif;
+      font-size: .78rem; font-weight: 500; color: var(--muted);
+      letter-spacing: 0;
+    }
+    .gal {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: .65rem;
+    }
+    .gal a {
+      position: relative;
+      display: block;
+      grid-column: span 3;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      border-radius: 12px;
+      background: var(--paper-2);
+      box-shadow: 0 1px 0 rgba(28,33,24,.04);
+    }
+    .gal a.feat {
+      grid-column: span 12;
+      aspect-ratio: 21 / 9;
+    }
+    .gal a.wide {
+      grid-column: span 6;
+      aspect-ratio: 4 / 3;
+    }
+    .gal a.third {
+      grid-column: span 4;
+    }
+    .gal a.half {
+      grid-column: span 6;
+      aspect-ratio: 3 / 4;
+    }
+    .gal img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform .45s ease, filter .3s ease;
+    }
+    .gal a:hover img { transform: scale(1.045); }
+    .gal a::after {
+      content: attr(data-caption);
+      position: absolute; left: 0; right: 0; bottom: 0;
+      padding: 2rem .85rem .7rem;
+      background: linear-gradient(transparent, rgba(16, 22, 14, .72));
+      color: #fff;
+      font-size: .78rem; font-weight: 600;
+      letter-spacing: .02em;
+      opacity: 0;
+      transition: opacity .25s ease;
+      pointer-events: none;
+    }
+    .gal a:hover::after,
+    .gal a:focus-visible::after { opacity: 1; }
+    @media (max-width: 900px) {
+      .gal a, .gal a.third { grid-column: span 4; }
+      .gal a.half, .gal a.wide { grid-column: span 6; }
+      .gal a.feat { grid-column: span 12; aspect-ratio: 16 / 9; }
+    }
+    @media (max-width: 560px) {
+      .gal { gap: .5rem; }
+      .gal a, .gal a.third, .gal a.half, .gal a.wide {
+        grid-column: span 6;
+        aspect-ratio: 3 / 4;
+      }
+      .gal a.feat {
+        grid-column: span 12;
+        aspect-ratio: 16 / 10;
+      }
+      .gal a::after { opacity: 1; padding-top: 1.5rem; font-size: .72rem; }
+    }
+
+    /* Specs table */
+    .specs {
+      width: 100%; border-collapse: collapse; background: #fff;
+      border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden;
+    }
+    .specs th, .specs td {
+      text-align: left; padding: .85rem 1.1rem;
+      border-bottom: 1px solid var(--line); vertical-align: top;
+    }
+    .specs tr:last-child th, .specs tr:last-child td { border-bottom: none; }
+    .specs th {
+      width: 38%; font-weight: 500; color: var(--muted);
+      background: var(--paper); font-size: .92rem;
+    }
+    .specs td { font-weight: 600; }
+
+    .note {
+      background: #fff8eb; border: 1px solid #efd9b0;
+      border-radius: var(--radius); padding: 1.1rem 1.2rem;
+      color: #5c3d12; font-size: .95rem; margin-top: 1.25rem;
+    }
+    .note strong { color: var(--warn); }
+
+    .energy {
+      display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;
+      margin-top: .75rem;
+    }
+    .energy-scale {
+      display: flex; height: 1.6rem; border-radius: 6px; overflow: hidden;
+      flex: 1; min-width: 220px; max-width: 420px;
+      font-size: .65rem; font-weight: 700; color: #fff;
+    }
+    .energy-scale span {
+      flex: 1; display: grid; place-items: center;
+    }
+    .energy-scale .a1 { background: #00a651; }
+    .energy-scale .a { background: #4caf50; }
+    .energy-scale .b { background: #8bc34a; }
+    .energy-scale .c { background: #cddc39; color: #333; outline: 2px solid var(--ink); outline-offset: -2px; z-index: 1; }
+    .energy-scale .d { background: #ffeb3b; color: #333; }
+    .energy-scale .e { background: #ffc107; color: #333; }
+    .energy-scale .f { background: #ff9800; }
+    .energy-scale .g { background: #ff5722; }
+    .energy-scale .h { background: #d32f2f; }
+    .energy-num { font-weight: 700; font-size: 1.1rem; }
+
+    .plan-box {
+      background: #fff; border: 1px solid var(--line);
+      border-radius: var(--radius); padding: 1rem;
+    }
+    .plan-box img { width: 100%; height: auto; }
+
+    /* Contact */
+    .contact-band {
+      background: var(--accent-deep);
+      color: #eef5ef;
+      border-radius: calc(var(--radius) + 6px);
+      padding: 2rem 1.75rem;
+      display: grid; grid-template-columns: 1.3fr auto; gap: 1.5rem;
+      align-items: center;
+    }
+    @media (max-width: 700px) { .contact-band { grid-template-columns: 1fr; } }
+    .contact-band h2 { color: #fff; margin-bottom: .5rem; }
+    .contact-band p { color: #c5d8c9; max-width: 48ch; }
+    .contact-band a.btn-primary {
+      background: #fff; color: var(--accent-deep) !important;
+    }
+    .contact-band a.btn-primary:hover { background: var(--paper); }
+    .contact-meta { margin-top: 1rem; font-size: .95rem; color: #c5d8c9; }
+    .contact-meta a { color: #fff; }
+
+    footer {
+      padding: 2rem 0 2.5rem; color: var(--muted); font-size: .88rem;
+      border-top: 1px solid var(--line); margin-top: 1rem;
+    }
+    footer .wrap {
+      display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem;
+    }
+
+    /* Lightbox */
+    .lb {
+      position: fixed; inset: 0; background: rgba(12, 16, 10, .92);
+      z-index: 100; display: none; align-items: center; justify-content: center;
+      padding: 1.5rem;
+    }
+    .lb.open { display: flex; }
+    .lb img { max-height: 90vh; max-width: 95vw; border-radius: 8px; object-fit: contain; }
+    .lb-close {
+      position: absolute; top: 1rem; right: 1rem;
+      background: transparent; border: none; color: #fff;
+      font-size: 2rem; cursor: pointer; line-height: 1;
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar" id="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="#">Wohnung <span>Paderborn</span></a>
+      <nav>
+        <a class="hide-sm" href="#objekt">Objekt</a>
+        <a class="hide-sm" href="#bilder">Bilder</a>
+        <a class="hide-sm" href="#daten">Daten</a>
+        <a class="hide-sm" href="#haus">Haus &amp; WEG</a>
+        <a class="nav-cta" href="#kontakt">Anfragen</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <section class="hero" style="border:0;padding-top:1.25rem">
+        <div class="hero-gallery">
+          <figure>
+            <img src="assets/aussenansicht.jpg" alt="Außenansicht Von-Stauffenberg-Straße 22" width="1200" height="900" />
+          </figure>
+          <figure>
+            <img src="assets/zimmer-3-1.jpg" alt="Helles Wohnzimmer mit Parkett und Balkonzugang" width="800" height="600" />
+          </figure>
+          <figure>
+            <img src="assets/balkon-2.jpg" alt="Blick vom Balkon ins Grüne" width="800" height="600" />
+          </figure>
+        </div>
+
+        <aside class="hero-card">
+          <div class="eyebrow">Privatverkauf · Sofort frei</div>
+          <h1>Geräumige 4-Zimmer-Wohnung mit Fernsicht</h1>
+          <p class="addr">Von-Stauffenberg-Straße 22 · 33102 Paderborn · 5. Obergeschoss</p>
+
+          <div class="price-row">
+            <div class="price">255.000&nbsp;€ <small>VB</small></div>
+            <span class="badge">inkl. TG-Stellplatz</span>
+          </div>
+
+          <dl class="facts">
+            <div class="fact"><dt>Wohnfläche</dt><dd>ca. 106 m²</dd></div>
+            <div class="fact"><dt>Zimmer</dt><dd>4 + Küche</dd></div>
+            <div class="fact"><dt>Balkon / Loggia</dt><dd>ca. 6 m²</dd></div>
+            <div class="fact"><dt>Etage</dt><dd>5. OG mit Aufzug</dd></div>
+            <div class="fact"><dt>Wohngeld</dt><dd>ca. 450 € / Monat</dd></div>
+            <div class="fact"><dt>Energie</dt><dd>88 kWh · Klasse C</dd></div>
+          </dl>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://wa.me/4917656967667?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20die%20Wohnung%20in%20der%20Von-Stauffenberg-Stra%C3%9Fe%2022.">WhatsApp</a>
+            <a class="btn btn-ghost" href="tel:+4917656967667">Anrufen</a>
+            <a class="btn btn-ghost" href="#bilder">Bilder</a>
+          </div>
+        </aside>
+      </section>
+    </div>
+
+    <section id="objekt">
+      <div class="wrap two-col">
+        <div>
+          <p class="section-label">Das Objekt</p>
+          <h2>Hell, großzügig, zentral – und bereit für den nächsten Abschnitt</h2>
+          <div class="prose">
+            <p>
+              Im 5. Obergeschoss der Von-Stauffenberg-Straße 22 steht eine
+              <strong>ca. 106 m² große Eigentumswohnung</strong> zum Verkauf.
+              Vier Zimmer, separate Küche, rollstuhlgerechtes Bad, separates
+              rollstuhlgerechtes WC, Abstellnische und eine Loggia mit freiem
+              Blick über Bäume und Stadt.
+            </p>
+            <p>
+              Die Wohnung ist <strong>leer und sofort beziehbar</strong>.
+              Böden und Wände können Sie frisch und nach Ihrem Geschmack
+              gestalten – ideal für den eigenen Einzug oder als Kapitalanlage
+              (marktübliche Kaltmiete ca. 8&nbsp;€/m² laut Mietspiegel-Einordnung).
+            </p>
+            <p>
+              Zum Sondereigentum gehören ein <strong>Kellerraum mit ca.&nbsp;8&nbsp;m²</strong>
+              und der <strong>Tiefgaragenstellplatz</strong> – günstig gelegen
+              <strong>direkt am Eingang der Tiefgarage</strong>.
+            </p>
+          </div>
+          <ul class="checklist">
+            <li>Aufzug im Haus – auch mit Rollator / Rollstuhl erreichbar</li>
+            <li>Bad und separates WC rollstuhlgerecht modernisiert (bodengleiche Dusche, Haltegriffe, unterfahrbarer Waschtisch)</li>
+            <li>Isolierverglasung, Gaszentralheizung</li>
+            <li>Kellerraum ca. 8 m² zum Sondereigentum</li>
+            <li>TG-Stellplatz direkt am Eingang der Tiefgarage</li>
+            <li>Gute Besonnung und sehr gute Fernsicht aus dem 5. OG</li>
+            <li>ca. 500 m zur Ortsmitte, ÖPNV in ca. 5 Gehminuten</li>
+          </ul>
+        </div>
+        <div>
+          <div class="card-grid" style="grid-template-columns:1fr;gap:.75rem">
+            <article class="info-card">
+              <div class="icon">🌳</div>
+              <h3>Lage</h3>
+              <p>
+                Ruhige Wohnlage im Norden Paderborns, umgeben von Grün.
+                Nächster Wald ca. 150&nbsp;m, Schulen und Freizeitangebote in Fußweite.
+                Autobahn ca. 4,8&nbsp;km.
+              </p>
+            </article>
+            <article class="info-card">
+              <div class="icon">♿</div>
+              <h3>Rollstuhlgerecht</h3>
+              <p>
+                Zugang über Aufzug. Bad und separates WC rollstuhlgerecht:
+                bodengleiche Dusche, Stützgriffe, unterfahrbarer Waschtisch.
+              </p>
+            </article>
+            <article class="info-card">
+              <div class="icon">🚗</div>
+              <h3>Stellplatz &amp; Keller</h3>
+              <p>
+                TG-Stellplatz <strong>direkt am Eingang der Tiefgarage</strong>,
+                wettergeschützt und im Preis enthalten. Dazu Kellerraum
+                ca.&nbsp;8&nbsp;m².
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="bilder" style="background:var(--paper)">
+      <div class="wrap">
+        <p class="section-label">Impressionen</p>
+        <h2>Rundgang durch die Wohnung</h2>
+        <p class="lead" style="margin-bottom:1.75rem">
+          Klicken zum Vergrößern. Die Wohnung ist derzeit unmöbliert und leer geräumt.
+        </p>
+
+        <div class="gallery-tour">
+          <div class="gallery-block">
+            <h3>Haus &amp; Lage <span>Außenansicht</span></h3>
+            <div class="gal">
+              <a class="feat" href="assets/aussenansicht.jpg" data-lb data-caption="Von-Stauffenberg-Straße 22">
+                <img src="assets/aussenansicht.jpg" alt="Außenansicht des Hauses" loading="lazy" />
+              </a>
+            </div>
+          </div>
+
+          <div class="gallery-block">
+            <h3>Wohnen &amp; Balkon <span>Zimmer 3 · Loggia ca. 6 m²</span></h3>
+            <div class="gal">
+              <a class="third" href="assets/zimmer-3-1.jpg" data-lb data-caption="Wohnzimmer">
+                <img src="assets/zimmer-3-1.jpg" alt="Wohnzimmer mit Parkett und Fensterfront" loading="lazy" />
+              </a>
+              <a class="third" href="assets/zimmer-3-2.jpg" data-lb data-caption="Wohnzimmer · Blick">
+                <img src="assets/zimmer-3-2.jpg" alt="Wohnzimmer zweiter Blickwinkel" loading="lazy" />
+              </a>
+              <a class="third" href="assets/balkon-2.jpg" data-lb data-caption="Ausblick vom Balkon">
+                <img src="assets/balkon-2.jpg" alt="Blick vom Balkon ins Grüne" loading="lazy" />
+              </a>
+              <a class="half" href="assets/balkon-1.jpg" data-lb data-caption="Loggia">
+                <img src="assets/balkon-1.jpg" alt="Loggia / Balkon" loading="lazy" />
+              </a>
+              <a class="half" href="assets/balkon-3.jpg" data-lb data-caption="Balkonzugang">
+                <img src="assets/balkon-3.jpg" alt="Balkon von Zimmer 3" loading="lazy" />
+              </a>
+            </div>
+          </div>
+
+          <div class="gallery-block">
+            <h3>Weitere Zimmer <span>Zimmer 1, 2 und 4</span></h3>
+            <div class="gal">
+              <a class="third" href="assets/zimmer-1.jpg" data-lb data-caption="Zimmer 1">
+                <img src="assets/zimmer-1.jpg" alt="Zimmer 1" loading="lazy" />
+              </a>
+              <a class="third" href="assets/zimmer-2.jpg" data-lb data-caption="Zimmer 2">
+                <img src="assets/zimmer-2.jpg" alt="Zimmer 2" loading="lazy" />
+              </a>
+              <a class="third" href="assets/zimmer-4.jpg" data-lb data-caption="Zimmer 4">
+                <img src="assets/zimmer-4.jpg" alt="Zimmer 4" loading="lazy" />
+              </a>
+            </div>
+          </div>
+
+          <div class="gallery-block">
+            <h3>Küche <span>separat · freier Gestaltungsspielraum</span></h3>
+            <div class="gal">
+              <a class="half" href="assets/kueche-1.jpg" data-lb data-caption="Küche">
+                <img src="assets/kueche-1.jpg" alt="Küche" loading="lazy" />
+              </a>
+              <a class="half" href="assets/kueche-2.jpg" data-lb data-caption="Küche · Fensterseite">
+                <img src="assets/kueche-2.jpg" alt="Küche mit Fenster" loading="lazy" />
+              </a>
+            </div>
+          </div>
+
+          <div class="gallery-block">
+            <h3>Bad &amp; WC <span>rollstuhlgerecht modernisiert</span></h3>
+            <div class="gal">
+              <a class="third" href="assets/bad-2.jpg" data-lb data-caption="Bodengleiche Dusche">
+                <img src="assets/bad-2.jpg" alt="Bad mit bodengleicher Dusche" loading="lazy" />
+              </a>
+              <a class="third" href="assets/bad-1.jpg" data-lb data-caption="Waschtisch">
+                <img src="assets/bad-1.jpg" alt="Bad Waschtisch unterfahrbar" loading="lazy" />
+              </a>
+              <a class="third" href="assets/wc-1.jpg" data-lb data-caption="Separates WC">
+                <img src="assets/wc-1.jpg" alt="Separates WC" loading="lazy" />
+              </a>
+            </div>
+          </div>
+
+          <div class="gallery-block">
+            <h3>Diele <span>Eingang · Abstellnische</span></h3>
+            <div class="gal">
+              <a class="half" href="assets/flur-eingang.jpg" data-lb data-caption="Diele / Eingang">
+                <img src="assets/flur-eingang.jpg" alt="Eingangstür mit Blick in den Flur" loading="lazy" />
+              </a>
+              <a class="half" href="assets/flur-abstell.jpg" data-lb data-caption="Abstellnische">
+                <img src="assets/flur-abstell.jpg" alt="Abstellnische im Flur" loading="lazy" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="daten">
+      <div class="wrap two-col">
+        <div>
+          <p class="section-label">Fakten</p>
+          <h2>Objektdaten im Überblick</h2>
+          <table class="specs">
+            <tr><th>Objektart</th><td>Eigentumswohnung (WE Nr. 56)</td></tr>
+            <tr><th>Adresse</th><td>Von-Stauffenberg-Straße 22, 33102 Paderborn</td></tr>
+            <tr><th>Lage im Haus</th><td>5. Obergeschoss, Wohnungstyp D</td></tr>
+            <tr><th>Wohnfläche</th><td>ca. 106 m² (lt. Wertermittlung / Aufteilungsplan 105,52 m²)</td></tr>
+            <tr><th>Zimmer</th><td>4 Zimmer, Küche, Bad, separates WC, Diele, Abstellnische</td></tr>
+            <tr><th>Balkon / Loggia</th><td>ca. 6 m²</td></tr>
+            <tr><th>Keller</th><td>Sondereigentum, ca. 8 m²</td></tr>
+            <tr><th>Stellplatz</th><td>Tiefgarage, direkt am Eingang der TG</td></tr>
+            <tr><th>Baujahr</th><td>1972</td></tr>
+            <tr><th>Heizung</th><td>Gas-Zentralheizung, Heizkörper mit Thermostatventilen</td></tr>
+            <tr><th>Fenster</th><td>Kunststoff mit Isolierverglasung</td></tr>
+            <tr><th>Aufzug</th><td>Vorhanden</td></tr>
+            <tr><th>Zustand</th><td>Leerstehend; Bad und WC rollstuhlgerecht modernisiert; Böden und Wände freuen sich auf eine frische Gestaltung</td></tr>
+            <tr><th>Wohngeld</th><td>ca. 450 € / Monat</td></tr>
+            <tr><th>Kaufpreis</th><td><strong>255.000 € VB</strong></td></tr>
+          </table>
+        </div>
+        <div>
+          <p class="section-label">Energieausweis</p>
+          <h2>Energiekennwerte</h2>
+          <table class="specs">
+            <tr><th>Art</th><td>Verbrauchsausweis</td></tr>
+            <tr><th>Endenergieverbrauch</th><td class="energy-num">88 kWh/(m²·a)</td></tr>
+            <tr><th>Primärenergieverbrauch</th><td>97 kWh/(m²·a)</td></tr>
+            <tr><th>Energieträger</th><td>Erdgas H</td></tr>
+            <tr><th>Effizienzklasse</th><td>C</td></tr>
+            <tr><th>Baujahr Wärmeerzeuger</th><td>1994 (lt. Ausweis)</td></tr>
+            <tr><th>Gültig bis</th><td>03.02.2029</td></tr>
+          </table>
+          <div class="energy">
+            <div class="energy-scale" aria-label="Energieeffizienzklasse C">
+              <span class="a1">A+</span><span class="a">A</span><span class="b">B</span>
+              <span class="c">C</span><span class="d">D</span><span class="e">E</span>
+              <span class="f">F</span><span class="g">G</span><span class="h">H</span>
+            </div>
+          </div>
+          <p style="margin-top:1rem;font-size:.92rem;color:var(--muted)">
+            <a href="docs/energieausweis.pdf" target="_blank" rel="noopener">Energieausweis als PDF herunterladen</a>
+          </p>
+
+          <div class="plan-box" style="margin-top:1.5rem">
+            <p class="section-label" style="margin-bottom:.5rem">Grundriss (Geschoss · Wohnung D)</p>
+            <a href="assets/grundriss.png" data-lb>
+              <img src="assets/grundriss.png" alt="Grundriss Haus Nr. 22, Wohnung D hervorgehoben" loading="lazy" />
+            </a>
+            <p style="margin-top:.75rem;font-size:.88rem;color:var(--muted)">
+              Wohnung D = 105,52 m² ·
+              <a href="docs/grundriss.pdf" target="_blank" rel="noopener">PDF</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="haus">
+      <div class="wrap">
+        <p class="section-label">Gemeinschaft &amp; Instandhaltung</p>
+        <h2>Hausverwaltung und anstehende Arbeiten</h2>
+        <div class="card-grid">
+          <article class="info-card">
+            <div class="icon">🏢</div>
+            <h3>Verwaltungswechsel</h3>
+            <p>
+              Die Hausverwaltung wechselt <strong>zum Jahresende</strong>
+              von der Robrecht Hausverwaltung zu
+              <strong>Dr. Willeke Immobilien</strong>.
+            </p>
+          </article>
+          <article class="info-card">
+            <div class="icon">🔧</div>
+            <h3>Nächste Gemeinschaftsmaßnahme</h3>
+            <p>
+              Die <strong>Fallrohre aller drei Häuser</strong>
+              (Von-Stauffenberg-Str. 21–23) werden fertiggestellt.
+              Das ist die nächste größere Renovierung am Haus.
+            </p>
+          </article>
+          <article class="info-card">
+            <div class="icon">🛠️</div>
+            <h3>Weitere geplante Arbeiten</h3>
+            <p>
+              Noch ausstehend von Seiten der Hausverwaltung:
+              <strong>Neuversiegelung des Balkons</strong> sowie die
+              <strong>Reparatur eines Fensters</strong>.
+            </p>
+          </article>
+        </div>
+        <div class="note">
+          <strong>Zur Gestaltung:</strong>
+          Bad und separates WC sind rollstuhlgerecht modernisiert.
+          Böden und Wände in den Wohnräumen laden dazu ein, die Wohnung
+          nach eigenen Vorstellungen frisch zu gestalten – ideal, wenn Sie
+          Farben, Beläge und Stil selbst wählen möchten.
+          Die Loggia erhält im Zuge der WEG noch eine Neuversiegelung.
+        </div>
+      </div>
+    </section>
+
+    <section id="lage">
+      <div class="wrap two-col">
+        <div>
+          <p class="section-label">Umgebung</p>
+          <h2>Paderborn – gut angebunden, grün umrahmt</h2>
+          <div class="prose">
+            <p>
+              Die Von-Stauffenberg-Straße liegt im Norden der Stadt, etwa
+              <strong>500 Meter von der Ortsmitte</strong> entfernt.
+              Bushaltestelle in ca. 370&nbsp;m / 5 Gehminuten, Hauptbahnhof
+              ca. 14 Autominuten, Flughafen Paderborn/Lippstadt ca. 23 Minuten.
+            </p>
+            <p>
+              In der Nachbarschaft: gewachsene Wohnbebauung der 1950er–70er Jahre,
+              viel Grün, nächster Wald in etwa 150&nbsp;m.
+              Schulen, Sport- und Freizeitangebote sind fußläufig erreichbar.
+            </p>
+          </div>
+          <ul class="checklist">
+            <li>ÖPNV ca. 5 Minuten zu Fuß</li>
+            <li>Autobahnauffahrt ca. 4,8 km</li>
+            <li>Wald / Naherholung in direkter Nähe</li>
+            <li>Ruhige Wohnstraße mit begrüntem Grundstück</li>
+          </ul>
+        </div>
+        <div class="plan-box">
+          <iframe
+            title="Karte Von-Stauffenberg-Straße 22 Paderborn"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=8.740%2C51.736%2C8.761%2C51.748&amp;layer=mapnik&amp;marker=51.7416853%2C8.7505551"
+            style="border:0;width:100%;height:320px;border-radius:10px"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+          <p style="margin-top:.75rem;font-size:.88rem;color:var(--muted)">
+            <a href="https://www.openstreetmap.org/?mlat=51.7416853&amp;mlon=8.7505551#map=17/51.7416853/8.7505551" target="_blank" rel="noopener">
+              Größere Karte auf OpenStreetMap
+            </a>
+            · Adresse exakt: Von-Stauffenberg-Str. 22, 33102 Paderborn
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt">
+      <div class="wrap">
+        <div class="contact-band">
+          <div>
+            <p class="section-label" style="color:#9ec5a8">Kontakt</p>
+            <h2>Besichtigung oder Fragen?</h2>
+            <p>
+              Privatverkauf durch den Eigentümer. Gerne zeige ich Ihnen die
+              Wohnung vor Ort oder beantworte Ihre Fragen zu Unterlagen,
+              Hausgeld und WEG.
+            </p>
+            <p class="contact-meta">
+              <strong style="color:#fff">David Kogan</strong><br />
+              Tel. / WhatsApp:
+              <a href="tel:+4917656967667">+49&nbsp;176&nbsp;56967667</a><br />
+              <a href="mailto:david_kogan@hotmail.de">david_kogan@hotmail.de</a><br />
+              Website: <a href="https://wohnung.davidkogan.de">wohnung.davidkogan.de</a>
+            </p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:.65rem;align-items:flex-start">
+            <a class="btn btn-primary" href="https://wa.me/4917656967667?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20die%20Wohnung%20in%20der%20Von-Stauffenberg-Stra%C3%9Fe%2022.">
+              WhatsApp schreiben
+            </a>
+            <a class="btn btn-ghost" style="border-color:rgba(255,255,255,.35);color:#fff !important" href="tel:+4917656967667">
+              Anrufen
+            </a>
+            <a class="btn btn-ghost" style="border-color:rgba(255,255,255,.35);color:#fff !important" href="mailto:david_kogan@hotmail.de?subject=Anfrage%20Wohnung%20Von-Stauffenberg-Str.%2022&body=Guten%20Tag%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20die%20Wohnung%20in%20der%20Von-Stauffenberg-Stra%C3%9Fe%2022%20und%20m%C3%B6chte%20gerne%20eine%20Besichtigung%20vereinbaren.%0A%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen%0A">
+              E-Mail
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>Privatverkauf · Von-Stauffenberg-Straße 22, 33102 Paderborn · 255.000&nbsp;€ VB</p>
+      <p>
+        Angaben ohne Gewähr. Kein Makler. ·
+        <a href="https://davidkogan.de/impressum" target="_blank" rel="noopener">Impressum</a>
+      </p>
+    </div>
+  </footer>
+
+  <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Bildansicht">
+    <button class="lb-close" type="button" aria-label="Schließen">&times;</button>
+    <img src="" alt="" />
+  </div>
+
+  <script>
+    const topbar = document.getElementById('topbar');
+    window.addEventListener('scroll', () => {
+      topbar.classList.toggle('scrolled', window.scrollY > 8);
+    }, { passive: true });
+
+    const lb = document.getElementById('lb');
+    const lbImg = lb.querySelector('img');
+    document.querySelectorAll('[data-lb]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        lbImg.src = a.getAttribute('href');
+        lbImg.alt = a.querySelector('img')?.alt || '';
+        lb.classList.add('open');
+      });
+    });
+    function closeLb() {
+      lb.classList.remove('open');
+      lbImg.src = '';
+    }
+    lb.querySelector('.lb-close').addEventListener('click', closeLb);
+    lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+  </script>
+</body>
+</html>
