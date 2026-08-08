@@ -34,6 +34,16 @@ python3 -m http.server 8080
 - [x] Wohngeld: ca. 450 € / Monat
 - [x] TG-Stellplatz geklärt (im Verkauf mit enthalten)
 
-## Hosting
+## Hosting (Coolify)
 
-Alle Dateien im Root der Domain `wohnung.davidkogan.de` ausliefern (`index.html` + `assets/` + `docs/`). Kein Build-Schritt nötig.
+- **Live:** https://wohnung.davidkogan.de  
+- **Coolify:** Projekt `davidkogan` · App `wohnung` · Build pack `dockerfile`  
+- **GitHub:** https://github.com/Dkogan90/wohnung (`main`)  
+- **Image:** nginx Alpine (`Dockerfile` + `nginx.conf`)
+
+Deploy: Push auf `main` und in Coolify redeployen, oder:
+
+```bash
+curl -X GET "https://coolify.davidkogan.de/api/v1/deploy?uuid=z4vfr6fxsw320csa7nu6d76s" \
+  -H "Authorization: Bearer $COOLIFY_TOKEN"
+```
